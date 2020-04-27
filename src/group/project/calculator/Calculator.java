@@ -27,14 +27,14 @@ public class Calculator {
 			BufferedReader br = new BufferedReader(new FileReader(inputFile));
 			BufferedWriter bw = new BufferedWriter(new FileWriter(outputFile));
 			String line = "";
-			while((line = br.readLine())!= null) 
+			while((line = br.readLine())!= null) // goes through each line and passes the equation
 			{
 				try
 				{
 					parsedExpression = parseExpression(line);
 					LinkedList<String> equation = new LinkedList<String>(Arrays.asList(parsedExpression));
 					String result = " = ".concat(Tokenizer.Pn(equation, new Tokenizer()));
-					
+					// writes result with equation to output.txt
 					bw.write(line.concat(result));
 					bw.newLine();
 					bw.flush();
@@ -75,17 +75,13 @@ public class Calculator {
 				LinkedList<String> equation = new LinkedList<String>(Arrays.asList(parsedExpression));
 				System.out.println(Tokenizer.Pn(equation, new Tokenizer()));
 	
-				
-				
 			} 
 			catch (ExpressionFormatError e) 
 			{
 				System.err.println(e);
 			}
 		}
-		
-		
-		
+
 	}
 	
 	// parses the inputed expression and checks for proper formatting

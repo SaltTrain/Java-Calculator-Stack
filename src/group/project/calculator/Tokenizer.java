@@ -13,18 +13,18 @@ public class Tokenizer {
 	// constructor
 	public Tokenizer() 
 	{
-		PEMDAS.put("cos", new cosOperator());
-		PEMDAS.put("sin", new sinOperator());
-		PEMDAS.put("tan", new tanOperator());
-		PEMDAS.put("arccos", new arccosOperator());
-		PEMDAS.put("arcsin", new arcsinOperator());
-		PEMDAS.put("arctan", new arctanOperator());
-		PEMDAS.put("!", new factorialOperator());
-		PEMDAS.put("^", new exponentOperator());
-		PEMDAS.put("/", new divideOperator());
-		PEMDAS.put("*", new multiplyOperator());
-		PEMDAS.put("+", new plusOperator());
-		PEMDAS.put("-", new minusOperator());
+		PEMDAS.put("cos", new CosOperator());
+		PEMDAS.put("sin", new SinOperator());
+		PEMDAS.put("tan", new TanOperator());
+		PEMDAS.put("arccos", new ArcCosOperator());
+		PEMDAS.put("arcsin", new ArcSinOperator());
+		PEMDAS.put("arctan", new ArcTanOperator());
+		PEMDAS.put("!", new FactorialOperator());
+		PEMDAS.put("^", new ExponentOperator());
+		PEMDAS.put("/", new DivideOperator());
+		PEMDAS.put("*", new MultiplyOperator());
+		PEMDAS.put("+", new PlusOperator());
+		PEMDAS.put("-", new MinusOperator());
 	}
 	
 	// handles expression without parentheses
