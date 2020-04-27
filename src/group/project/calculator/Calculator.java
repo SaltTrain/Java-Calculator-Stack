@@ -12,11 +12,17 @@ import java.io.Writer;
 import java.util.Arrays;
 import java.util.LinkedList;
 
-public class Calculator {
+public class Calculator 
+{
+	/**
+	 * Calculator class
+	 * 	used to handle file and System.in input from users
+	 * */
 	
-	public static String[] parsedExpression;
+	/**instance variable*/
+	public static String[] parsedExpression; // used String array to handle initial expression input
 
-	// JVM entry point
+	/**JVM entry point*/
 	public static void main(String[] args) throws IOException 
 	{
 		// handles equation from files
@@ -42,7 +48,7 @@ public class Calculator {
 				} 
 				catch (ExpressionFormatError e) 
 				{
-					System.err.println(e);
+					System.err.println(e); // custom Exception for properly accepting expression layout from user 
 				}
 			}
 			bw.close();
@@ -52,12 +58,11 @@ public class Calculator {
 			// prints exception
 			e1.printStackTrace();
 		}
-		// execute the formula and write to output.txt
 		
 		// reader for console system only
 		BufferedReader reader =  new BufferedReader(new InputStreamReader(System.in));
 		
-		introMessage(); // prints intro to console for user
+		introMessage(); // prints introduction to console for user
 		
 		while (true)
 		{
@@ -66,7 +71,7 @@ public class Calculator {
 				// asks user for expression and than checks for proper spacing
 				System.out.println("Please enter your expression:");
 				String output = reader.readLine();
-				if(output.equals("q")) 
+				if(output.equals("q")) // if user enters "q" than program quits
 				{
 					System.out.println("goodbye...");
 					break;
@@ -78,7 +83,7 @@ public class Calculator {
 			} 
 			catch (ExpressionFormatError e) 
 			{
-				System.err.println(e);
+				System.err.println(e); // custom Exception for properly accepting expression layout from user 
 			}
 		}
 
@@ -150,7 +155,7 @@ public class Calculator {
 		return returnArray;
 	}
 	
-	// displays intro to console
+	// displays introduction to console
 	public static void introMessage() 
 	{
 		System.out.printf("%s %s %s %d %s %s\n\n","Welcome","to","Group",1,"Calculator","Program");
@@ -165,6 +170,10 @@ public class Calculator {
 // custom exception for improper expression format
 class ExpressionFormatError extends Exception 
 {
+	/**
+	 * ExpressionFormatError class
+	 * 	used for handling expression input format
+	 * */
 	private static final long serialVersionUID = 1L; // eclipse recommended
 
 	public ExpressionFormatError(String message) 

@@ -4,13 +4,19 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Stack;
 
-public class Tokenizer {
+public class Tokenizer 
+{
+	/**
+	 * Tokenizer class
+	 * 	used for calculating expression
+	 * */
 	
-	private HashMap<String, Operator> PEMDAS = new HashMap<String, Operator>();
+	/**instance variable*/
+	private HashMap<String, Operator> PEMDAS = new HashMap<String, Operator>(); 
 	
 	private static String[] order = {"cos","sin","tan","arccos","arcsin","arctan","!","^","/","*","+","-"};
 
-	// constructor
+	/**constructor*/
 	public Tokenizer() 
 	{
 		PEMDAS.put("cos", new CosOperator());
@@ -27,7 +33,7 @@ public class Tokenizer {
 		PEMDAS.put("-", new MinusOperator());
 	}
 	
-	// handles expression without parentheses
+	/**methods*/
 	public static String Pn(LinkedList<String> expression, Tokenizer o) 
 	{
 		HashMap<String, Operator> PEMDAS = o.getHashMap();
@@ -247,7 +253,8 @@ public class Tokenizer {
 		LinkedList<String> temp = new LinkedList<String>(); // holds expression inside parentheses
 		LinkedList<Integer> tempIndexes = new LinkedList<Integer>(); // hold indexes inside parentheses for removal after solution
 		// takes care of parentheses first
-		for (int i = 0; i < expression.size(); i++) {
+		for (int i = 0; i < expression.size(); i++) 
+		{
 			
 			if(expression.get(i).equals("(")) 
 			{
